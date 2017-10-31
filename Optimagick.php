@@ -207,6 +207,9 @@ class Optimagick {
 	 */
 	public function write( $filename = null ) {
 		if ( $this->isAnimated() ) {
+			if( is_null( $filename ) ) {
+				$filename = $this->image->getImageFilename();
+			}
 			$this->image->writeImages( $filename, true );
 		} else {
 			$this->image->writeImage( $filename );
